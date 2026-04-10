@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from 'axios';
 import { Routes, Route, Navigate } from 'react-router';
 import { useState, useEffect } from 'react';
@@ -18,7 +19,7 @@ axios.interceptors.request.use((config) => {
 });
 
 // Protected Route Component
-function ProtectedRoute({ children }: { children: JSX.Element }) {
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('token');
   if (!token) {
     return <Navigate to="/login" replace />;
